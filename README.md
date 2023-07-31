@@ -59,7 +59,7 @@ or without docker:
 ~~~
 
 ~~~bash  
-  curl "http://localhost:8080/tokens/:cid
+  curl "http://localhost:8080/tokens/:cid"
 ~~~
  
 
