@@ -38,7 +38,11 @@ func (t *task) Execute(ctx context.Context) error {
 
 //syncTokensData reads cids files and get data using external service
 func (t *task) syncTokensData(ctx context.Context) ([]tokens.Tokens, error) {
-	file, err := os.Open("cmd/function/sync_tokens/pkg/ipfs_cids.csv")
+	tokensDataFile := os.Getenv("TOKENS_DATA_FILE")
+	if tokensDataFile == "" {
+		tokensDataFile = "cmd/function/sync_tokens/pkg/ipfs_cids.csv"
+	}
+	file, err := os.Open(tokensDataFile)
 	if err != nil {
 		return nil, err
 	}

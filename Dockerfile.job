@@ -9,10 +9,13 @@ RUN go mod download
 
 COPY . .
 
+COPY cmd/function/sync_tokens/pkg/ipfs_cids.csv /app/cmd/function/sync_tokens/pkg/ipfs_cids.csv
+
 RUN go build -o /application ./cmd/function/sync_tokens/main.go
 
 FROM alpine
 
 COPY --from=builder /application /app/application
+COPY --from=builder /app/cmd/function/sync_tokens/pkg/ipfs_cids.csv /app/cmd/function/sync_tokens/pkg/ipfs_cids.csv
 
 ENTRYPOINT ./app/application

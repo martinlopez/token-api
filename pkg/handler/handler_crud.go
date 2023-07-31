@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 
 	"tokens-api/pkg/behaviour"
@@ -44,6 +45,10 @@ func (h *crudHandler) getByID(c *gin.Context) {
 	id := c.Param("id")
 	entity, err := h.reader.ByID(c, id)
 	if err != nil {
+		if errors.Is(err, ErrNotFound) {
+			c.JSON(404, gin.H{"error": err.Error()})
+			return
+		}
 		c.JSON(500, gin.H{"error": err.Error()})
 		return
 	}
