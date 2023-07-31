@@ -51,6 +51,6 @@ func (s *usecase) Update(_ context.Context, id string, ent any) (any, error) {
 
 //delete deletes the entity with the given id
 func (s *usecase) Delete(_ context.Context, id string) error {
-	err := s.repo.Delete(&Tokens{}, id)
+	err := s.repo.Delete(&Tokens{}, "id = ?", id)
 	return err.Error
 }
