@@ -1,22 +1,3 @@
-
-  # Tokens API 🚀  
-  Import your existing Readme using the import button at the bottom, 
-  or create a new Readme from scratch by typing in the editor.  
-  
-  ## Scaffolding 🚀  
-  - cmd
-  - db
-  - internal
-  - 
-  
-
-  ## Prebuilt Components/Templates 🔥  
-  You can checkout prebuilt components and templates by clicking on the 'Add Section' button or menu icon
-  on the top left corner of the navbar.
-      
-  ## Save Readme ✨  
-  Once you're done, click on the save button to download and save your ReadMe!
-  
 # Tokens API  
 
 # Scaffolding  
@@ -24,7 +5,7 @@
 - cmd (executable files)
 - db (contains migrations)
 - internal (business logic)
-  - [service_name] (each service will have a domain and usecase)
+  - service_name (each service will have a domain and usecase)
     - domain
     - usecase
 - pkg  (code that can be shared)
